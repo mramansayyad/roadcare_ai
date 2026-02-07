@@ -1,0 +1,36 @@
+{
+  "name": "PriorityRule",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Rule name"
+    },
+    "minScore": {
+      "type": "number",
+      "description": "Minimum severity score"
+    },
+    "maxScore": {
+      "type": "number",
+      "description": "Maximum severity score"
+    },
+    "priority": {
+      "type": "string",
+      "enum": [
+        "Critical",
+        "High",
+        "Medium"
+      ],
+      "description": "Assigned priority"
+    },
+    "isActive": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "required": [
+    "name",
+    "minScore",
+    "priority"
+  ]
+}
