@@ -1,39 +1,160 @@
-**Welcome to your Base44 project** 
+# 🚧 RoadCare AI — AI‑Powered Road Damage Detection & Management System
 
-**About**
+🔗 **Live Demo:** https://roadcareai.base44.app/
 
-View and Edit  your app on [Base44.com](http://Base44.com) 
+> An end‑to‑end civic tech platform that uses AI Vision, GPS, and real‑time dashboards to detect, prioritize, and resolve road damage for municipal corporations.
 
-This project contains everything you need to run your app locally.
+---
 
-**Edit the code in your local development environment**
+## 🧠 Problem
+Municipal complaint handling for road damage is slow, manual, and lacks accurate location tracking, priority logic, and transparency for citizens.
 
-Any change pushed to the repo will also be reflected in the Base44 Builder.
+---
 
-**Prerequisites:** 
+## 💡 Solution
+**RoadCare AI** enables citizens to report road damage with a photo. A multi‑modal AI Vision model analyzes the image, assigns severity, calculates priority, routes it to the correct department, and provides real‑time tracking for both citizens and officers.
 
-1. Clone the repository using the project's Git URL 
-2. Navigate to the project directory
-3. Install dependencies: `npm install`
-4. Create an `.env.local` file and set the right environment variables
+- No app install
+- No manual triage
+- Mobile‑first, browser‑based
+
+---
+
+## ✨ Highlights
+- AI road damage classification (GPT‑4 Vision / Claude Sonnet via Base44)
+- Automatic GPS capture and map visualization
+- Auto priority & department routing
+- Live officer dashboard with filters and analytics
+- Complaint ID with real‑time tracking
+- Role‑based Admin / Officer access
+
+---
+
+## 🏗️ Architecture
 
 ```
-VITE_BASE44_APP_ID=your_app_id
-VITE_BASE44_APP_BASE_URL=your_backend_url
-
-e.g.
-VITE_BASE44_APP_ID=cbef744a8545c389ef439ea6
-VITE_BASE44_APP_BASE_URL=https://my-to-do-list-81bfaad7.base44.app
+Citizen Portal | Officer Dashboard | Admin Panel
+                 ↓
+               React SPA
+                 ↓
+             Base44 SDK Layer
+                 ↓
+         Base44 BaaS (Auth, DB, Storage)
+                 ↓
+     AI Vision + OpenStreetMap + Cloud Storage
 ```
 
-Run the app: `npm run dev`
+---
 
-**Publish your changes**
+## ⚙️ Tech Stack
+**Frontend:** React 18, React Router, Tailwind, Shadcn/UI, Framer Motion, React Leaflet, TanStack React Query  
+**Backend:** Base44 BaaS, NoSQL Entities, JWT Auth, Cloud Storage  
+**AI/ML:** GPT‑4 Vision / Claude Sonnet (InvokeLLM)  
+**Maps:** OpenStreetMap, Leaflet, Browser Geolocation API
 
-Open [Base44.com](http://Base44.com) and click on Publish.
+---
 
-**Docs & Support**
+## 🧩 Modules
+| Module | Description |
+|---|---|
+| Citizen Portal | Upload photo, auto GPS, AI analysis |
+| Track Complaint | Status via complaint ID |
+| Officer Dashboard | Map view, filters, status updates |
+| Admin Panel | Departments, rules, users |
+| AI Engine | Classification → severity → priority → department |
 
-Documentation: [https://docs.base44.com/Integrations/Using-GitHub](https://docs.base44.com/Integrations/Using-GitHub)
+---
 
-Support: [https://app.base44.com/support](https://app.base44.com/support)
+## 🧠 AI Logic
+Damage types:
+- Pothole
+- Crack
+- Waterlogged
+- Broken Edge
+- Surface Damage
+- Other
+
+**Severity = confidence × 100**
+
+| Score | Priority |
+|---|---|
+| ≥ 75 | Critical |
+| 50–74 | High |
+| < 50 | Medium |
+
+Department routing is automatic based on damage type.
+
+---
+
+## 🔄 Workflow
+1. Citizen captures photo
+2. GPS auto‑captured
+3. AI analyzes image
+4. Priority & department assigned
+5. Complaint ID generated
+6. Officer updates status
+7. Citizen tracks in real time
+
+---
+
+## 🗃️ Data Model (Entities)
+- Report
+- Department
+- PriorityRule
+- User (Admin / Officer)
+
+Each report stores image URL, GPS, damage type, confidence, severity, priority, department, and status.
+
+---
+
+## 🔐 Security
+- HTTPS only
+- JWT authentication
+- RBAC (Admin / Officer)
+- Input validation & XSS protection
+- Secure cloud image storage
+
+---
+
+## 📊 Expected Impact (18 months)
+- 25,000+ complaints processed
+- 85% resolution rate
+- 70% reduction in manual processing
+- 30% reduction in road accidents
+- ₹2+ crore cost savings
+
+---
+
+## 🚀 Deployment
+- Base44 cloud infrastructure
+- Serverless backend with auto‑scaling
+- CDN for frontend
+- Managed NoSQL database
+- Cloud object storage
+
+---
+
+## 🛣️ Future Enhancements
+- WhatsApp complaint submission
+- SMS status notifications
+- Voice‑based reporting
+- Predictive maintenance analytics
+- Native mobile app
+
+---
+
+## 👥 Team CYBER NOVA
+**Aman Sayyad** — Founder & Team Lead  
+Developed for **SAMVED Hackathon 2026**
+
+---
+
+## 📄 Documentation
+Full architecture, AI algorithm, workflow, database schema, feasibility study, and research references are detailed in the project document.
+
+See: PROJECT DETAILS – RoadCare AI (PDF)
+
+---
+
+## ⭐ Why It Matters
+A practical example of AI for Smart Cities in India—bringing transparency, speed, and data‑driven governance to road maintenance.
